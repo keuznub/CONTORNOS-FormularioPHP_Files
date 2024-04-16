@@ -44,7 +44,7 @@
 ?>
 
     <div class="container">
-        <form action='' method="post" onsubmit="actionJS()" id="form">
+        <form action='<?php echo $_SERVER["PHP_SELF"] ?>' method="post" onsubmit="actionJS()" id="form">
             <div class="section">
                 <div class="row">
                     <div class="col-sm-5">
@@ -70,17 +70,17 @@
                     <h3 class="form-label">Enseñanzas</h3>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input class="form-check-input" type="radio" name="enseñanza" id="secundaria" value="secundaria" required <?php checked($enseñanza,"secundaria")  ?> >
+                            <input class="form-check-input" type="radio" name="enseñanza" id="secundaria" value="Secundaria" required <?php checked($enseñanza,"Secundaria")  ?> >
                             <label class="form-check-label" for="secundaria">Secundaria
                                 <br>
-                                <input class="form-check-input" type="radio" name="enseñanza" id="bachillerato" value="bachillerato" <?php checked($enseñanza,"bachillerato")  ?>  >
+                                <input class="form-check-input" type="radio" name="enseñanza" id="bachillerato" value="Bachillerato" <?php checked($enseñanza,"Sachillerato")  ?>  >
                                 <label class="form-check-label" for="bachillerato">Bachillerato
                         </div>
                         <div class="col-sm-6">
-                            <input class="form-check-input" type="radio" name="enseñanza" id="cicloMedio" value="cicloMedio" <?php checked($enseñanza,"cicloMedio")  ?> >
+                            <input class="form-check-input" type="radio" name="enseñanza" id="cicloMedio" value="Ciclo Medio" <?php checked($enseñanza,"Ciclo Medio")  ?> >
                             <label class="form-check-label" for="cicloMedio">Ciclo Medio
                                 <br>
-                                <input class="form-check-input" type="radio" name="enseñanza" id="cicloSuperior" value="cicloSuperior" <?php checked($enseñanza,"cicloSuperior")  ?> >
+                                <input class="form-check-input" type="radio" name="enseñanza" id="cicloSuperior" value="Ciclo Superior" <?php checked($enseñanza,"Ciclo Superior")  ?> >
                                 <label class="form-check-label" for="cicloSuperior">Ciclo Superior
                         </div>
                     </div>
@@ -112,30 +112,26 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        function actionJS(){
-            
-            
-            if(optionValue == "porPantalla"){
-                var formulario = document.getElementById("form");
-                formulario.action = "mostrarDatos.php";
-                
-            }
-            
-
-
-        }
-
         addEventListener("DOMContentLoaded", function(){
             var optionValue = "<?php echo $mostrarDatos; ?>";
-            
             if(optionValue == "enArchivoDatos"){
-                console.log("hola");
                 var alertas = document.getElementsByClassName("alert");
                 var alerta = alertas[0];
                 alerta.style.opacity = "100%";
-                alerta.style.opacity = "0%";
+                setTimeout(function(e){
+                    alerta.style.opacity ="0%";
+                },1500);
             }
         });
+        function actionJS(){
+            var optionValue = document.getElementById("mostrarDatos").value;
+            if(optionValue == "porPantalla"){
+                var formulario = document.getElementById("form");
+                formulario.action = "mostrarDatos.php"; 
+                
+            }
+        }
+        
     </script>
 </body>
 
