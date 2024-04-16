@@ -40,18 +40,25 @@
         escribirArchivo($arrayValoresArchivo);
     }
 
+    if(isset($_POST['limpiarValores'])){
+        $nombre = "";
+        $telefono = "";
+        $enseñanza = "";
+        $mostrarDatos = "";
+    }
+
 
 ?>
 
     <div class="container">
-        <form action='<?php echo $_SERVER["PHP_SELF"] ?>' method="post" onsubmit="actionJS()" id="form">
+        <form action='<?php echo $_SERVER["PHP_SELF"] ?>' method="post" id="form">
             <div class="section">
                 <div class="row">
                     <div class="col-sm-5">
                         <label class="form-label" for="nombre">Introduzca su nombre: </label>
                     </div>
                     <div class="col-sm-7">
-                        <input class="form-control" type="text" name="nombre" id="nombre" size="20" value="<?php echo $nombre ?>" required>
+                        <input class="form-control " type="text" name="nombre" id="nombre" value="<?php echo $nombre ?>" required>
                     </div>
                     <br>
                 </div>
@@ -60,7 +67,7 @@
                         <label class="form-label" for="telefono">Telefono: </label>
                     </div>
                     <div class="col-sm-7">
-                        <input class="form-control" type="tel" name="telefono" id="telefono" size="8" value="<?php echo $telefono ?>" required>
+                        <input class="form-control " type="tel" name="telefono" id="telefono" value="<?php echo $telefono ?>" required>
                     </div>
                     <br>
                 </div>
@@ -70,17 +77,17 @@
                     <h3 class="form-label">Enseñanzas</h3>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input class="form-check-input" type="radio" name="enseñanza" id="secundaria" value="Secundaria" required <?php checked($enseñanza,"Secundaria")  ?> >
+                            <input class="form-check-input " type="radio" name="enseñanza" id="secundaria" value="Secundaria" required <?php checked($enseñanza,"Secundaria")  ?> >
                             <label class="form-check-label" for="secundaria">Secundaria
                                 <br>
-                                <input class="form-check-input" type="radio" name="enseñanza" id="bachillerato" value="Bachillerato" <?php checked($enseñanza,"Sachillerato")  ?>  >
+                                <input class="form-check-input " type="radio" name="enseñanza" id="bachillerato" value="Bachillerato" <?php checked($enseñanza,"Bachillerato")  ?>  >
                                 <label class="form-check-label" for="bachillerato">Bachillerato
                         </div>
                         <div class="col-sm-6">
-                            <input class="form-check-input" type="radio" name="enseñanza" id="cicloMedio" value="Ciclo Medio" <?php checked($enseñanza,"Ciclo Medio")  ?> >
+                            <input class="form-check-input " type="radio" name="enseñanza" id="cicloMedio" value="Ciclo Medio" <?php checked($enseñanza,"Ciclo Medio")  ?> >
                             <label class="form-check-label" for="cicloMedio">Ciclo Medio
                                 <br>
-                                <input class="form-check-input" type="radio" name="enseñanza" id="cicloSuperior" value="Ciclo Superior" <?php checked($enseñanza,"Ciclo Superior")  ?> >
+                                <input class="form-check-input " type="radio" name="enseñanza" id="cicloSuperior" value="Ciclo Superior" <?php checked($enseñanza,"Ciclo Superior")  ?> >
                                 <label class="form-check-label" for="cicloSuperior">Ciclo Superior
                         </div>
                     </div>
@@ -90,7 +97,7 @@
                 <div class="row">
                     <div class="col-12">
                         <label class="form-label" for="mostrarDatos">Mostrar Datos</label>
-                        <select class="form-select" name="mostrarDatos" id="mostrarDatos" required>
+                        <select class="form-select " name="mostrarDatos" id="mostrarDatos">
                             <option value="" selected>Seleccionar</option>
                             <option value="porPantalla" >Por pantalla</option>
                             <option value="enArchivoDatos" >En Archivo datos.txt</option>
@@ -99,8 +106,14 @@
                 </div>
             </div>
             <div class="row enviar">
-                <div class="col-12">
-                    <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Enviar">
+                <div class="col-4">
+                    <input class="btn btn-primary" type="submit" name="enviar" id="enviar" onclick="actionJS()" value="Enviar">
+                </div>
+                <div class="col-4">
+                    <input class="btn btn-info" type="submit" name="verArchivos" id="verArchivos" onclick="actionJSArchivo()" value="Ver Archivo">
+                </div>
+                <div class="col-4">
+                    <input class="btn btn-outline-success" type="submit" name="limpiarValores" id="limpiarValores"  value="Limpiar Valores">
                 </div>
             </div>
             <div class="alert alert-primary" role="alert">
@@ -117,20 +130,30 @@
             if(optionValue == "enArchivoDatos"){
                 var alertas = document.getElementsByClassName("alert");
                 var alerta = alertas[0];
+                var btnVerArchivo = document.getElementsByClassName("btn-info");
+                var btnInfo = btnVerArchivo[0];
                 alerta.style.opacity = "100%";
+                alerta.style.display ="block";
                 setTimeout(function(e){
                     alerta.style.opacity ="0%";
                 },1500);
+                btnInfo.style.display ="block";
+                btnInfo.style.opacity = "100%";
             }
         });
         function actionJS(){
             var optionValue = document.getElementById("mostrarDatos").value;
             if(optionValue == "porPantalla"){
                 var formulario = document.getElementById("form");
-                formulario.action = "mostrarDatos.php"; 
-                
+                formulario.action = "mostrarDatos.php";    
             }
         }
+
+        function actionJSArchivo(){
+            var formulario = document.getElementById("form");
+            formulario.action = "verArchivo.php";   
+        }
+
         
     </script>
 </body>

@@ -19,7 +19,10 @@
     margin: 1em;
 }
 
-.alert{
+
+
+.alert, .btn-info{
+    display: none;
     opacity: 0%;
     transition: opacity 0.5s ease-in-out;
 }

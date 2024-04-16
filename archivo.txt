@@ -1,4 +1,4 @@
 -------Persona-------
-Nombre: zsfgdfg
-Telefono: 4545
-Enseñanza: Secundaria
+Nombre: Brei
+Telefono: 234
+Enseñanza: Ciclo Medio
