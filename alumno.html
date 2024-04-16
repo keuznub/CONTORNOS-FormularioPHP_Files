@@ -103,6 +103,15 @@
                     <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Enviar">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>
+                        <?php
+                            echo var_dump($_POST);
+                        ?>
+                    </h3>
+                </div>
+            </div>
             <div class="alert alert-primary" role="alert">
                 Archivo escrito Exitosamente!
             </div>
@@ -113,29 +122,20 @@
         crossorigin="anonymous"></script>
     <script>
         function actionJS(){
+            var optionSelected = document.getElementById("mostrarDatos");
+            var optionValue = optionSelected.value;
             
             
             if(optionValue == "porPantalla"){
                 var formulario = document.getElementById("form");
                 formulario.action = "mostrarDatos.php";
-                
-            }
-            
-
-
-        }
-
-        addEventListener("DOMContentLoaded", function(){
-            var optionValue = "<?php echo $mostrarDatos; ?>";
-            
-            if(optionValue == "enArchivoDatos"){
-                console.log("hola");
-                var alertas = document.getElementsByClassName("alert");
-                var alerta = alertas[0];
+                var alerta = document.getElementsByClassName(".alert");
                 alerta.style.opacity = "100%";
                 alerta.style.opacity = "0%";
             }
-        });
+
+            
+        }
     </script>
 </body>
 

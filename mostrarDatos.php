@@ -30,7 +30,7 @@
                         <h2 class="form-label" for="nombre">Nombre: </h2>
                     </div>
                     <div class="col-sm-7">
-                        <input class="form-control" type="text" name="nombre" id="nombre"  value="<?php echo $nombre ?>"  disabled readonly>
+                        <input class="form-control" type="text" name="nombre" id="nombre"  value="<?php echo $nombre ?>"   readonly>
                     </div>
                     <br>
                 </div>
@@ -40,7 +40,7 @@
                         <h2 class="form-label" for="telefono">Telefono: </h2>
                     </div>
                     <div class="col-sm-7">
-                        <input class="form-control" type="tel" name="telefono" id="telefono" value="<?php echo $telefono ?>"   disabled readonly>
+                        <input class="form-control" type="tel" name="telefono" id="telefono" value="<?php echo $telefono ?>"    readonly>
                     </div>
                     <br>
                 </div>
@@ -51,7 +51,7 @@
                     <h3 class="form-label">Enseñanzas</h3>
                     <div class="row">
                         <div class="col-sm-10">
-                            <input class="form-control" type="text" name="enseñanza" id="enseñanza" value="<?php echo $enseñanza ?>" disabled readonly>
+                            <input class="form-control" type="text" name="enseñanza" id="enseñanza" value="<?php echo $enseñanza ?>"  readonly>
                         </div>
                         <br>
                     </div>

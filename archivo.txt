@@ -1,0 +1,4 @@
+-------Persona-------
+Nombre: asdf
+Telefono: 343
+Enseñanza: bachillerato
