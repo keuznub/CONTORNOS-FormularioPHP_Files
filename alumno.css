@@ -1,0 +1,21 @@
+.container{
+    margin-top: 2em;
+    width: 50%;
+}
+
+.row{
+    margin-bottom: 1em;
+    
+}
+
+.section{
+    margin: 0.5em;
+    border: 1px solid rgba(110, 110, 110, 0.188);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.enviar{
+    margin: 1em;
+}
+
